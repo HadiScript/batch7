@@ -1,0 +1,15 @@
+.my-btn {
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#myBtn {
+  color: white;
+  background-color: rgb(10, 43, 109);
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 10px;
+}
