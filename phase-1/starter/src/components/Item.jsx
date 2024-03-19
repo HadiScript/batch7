@@ -1,9 +1,13 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Check } from "react-feather";
 
-const Item = ({ title, removeEle }) => {
+const Item = ({ title, removeEle, isCompleted, makeCompleted, clickItem, updateItem }) => {
   return (
-    <div
+    <motion.div
+      drag
+      dragConstraints={{ top: 0, bottom: 200 }}
+      onClick={clickItem}
       style={{
         marginTop: "20px",
         display: "flex",
@@ -16,7 +20,9 @@ const Item = ({ title, removeEle }) => {
         color: "#083344",
       }}
     >
-      <h3>{title}</h3>
+      <h3 style={{ textDecoration: `${isCompleted ? "line-through" : ""}` }}>
+        {isCompleted ? "yes" : "noe"} {title}
+      </h3>
 
       <div
         style={{
@@ -27,11 +33,13 @@ const Item = ({ title, removeEle }) => {
         }}
       >
         <span onClick={removeEle}>X</span>
-        <span>
+        <span onClick={makeCompleted}>
           <Check />
         </span>
+
+        <button onClick={updateItem}>Update</button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
